@@ -1,0 +1,16 @@
+﻿<Window x:Class="_15ContactsApp.NewContactWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_15ContactsApp"
+        mc:Ignorable="d"
+        Title="New Contact" Height="450" Width="300">
+        <StackPanel Margin="10">
+            <TextBox x:Name="TxtBoxName" Margin="0,0,0,5"/>
+            <TextBox x:Name="TxtBoxemail" Margin="0,0,0,5"/>
+            <TextBox x:Name="TxtBoxPhone" Margin="0,0,0,5"/>
+            <Button x:Name="BtnSave" Content ="Save" Click="BtnSave_Click" Margin="0,0,0,5"/>
+        </StackPanel>
+    
+</Window>
