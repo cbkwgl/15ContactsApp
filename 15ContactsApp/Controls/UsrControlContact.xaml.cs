@@ -21,19 +21,47 @@ namespace _15ContactsApp.Controls
     /// </summary>
     public partial class UsrControlContact : UserControl
     {
-        private Contact contact;
+        //Update the code to allow binding on Contact -> use propdp to create a dependency property.
+
 
         public Contact Contact
         {
-            get { return contact; }
-            set 
-            { 
-                contact = value;
-                txtBlockName.Text = contact.Name;
-                txtBlockEmail.Text = contact.Email;
-                txtBlockPhone.Text = contact.Phone;
+            get { return (Contact)GetValue(ContactProperty); }
+            set { SetValue(ContactProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Contact.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ContactProperty =
+            DependencyProperty.Register("Contact", typeof(Contact), typeof(UsrControlContact), new PropertyMetadata(new Contact() { Name = "Name LastName", Phone = "(0123) 456 789", Email="email@email.com"}, SetText));
+
+        private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            UsrControlContact control = d as UsrControlContact;
+
+            if (control != null)
+            {
+                control.txtBlockName.Text = (e.NewValue as Contact).Name;
+                control.txtBlockEmail.Text = (e.NewValue as Contact).Email;
+                control.txtBlockPhone.Text = (e.NewValue as Contact).Phone;
+
             }
         }
+
+
+
+        //private Contact contact;
+        //
+        //public Contact Contact
+        //{
+        //    get { return contact; }
+        //    set 
+        //    { 
+        //        contact = value;
+        //        txtBlockName.Text = contact.Name;
+        //        txtBlockEmail.Text = contact.Email;
+        //        txtBlockPhone.Text = contact.Phone;
+        //    }
+        //}
 
         public UsrControlContact()
         {

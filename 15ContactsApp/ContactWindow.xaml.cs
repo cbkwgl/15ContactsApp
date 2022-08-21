@@ -26,6 +26,9 @@ namespace _15ContactsApp
         {
             InitializeComponent();
 
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
             this.contact = contact;
             TxtBoxName.Text = contact.Name;
             TxtBoxemail.Text = contact.Email;
